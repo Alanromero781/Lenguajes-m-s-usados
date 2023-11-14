@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lenguajes de Programación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+  
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  
+    .language-card-container {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .language-card {
+      border-radius: 58px;
+      background: linear-gradient(145deg, #acacac, #cccccc);
+      box-shadow:  20px 20px 28px #9d9d9d,
+           -20px -20px 28px #e1e1e1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+  
+    .language-card:hover {
+      border-color: #007BFF;
+      background-color: #f0f0f0;
+    }
+  
+    .language-card h2 {
+      color: #555;
+      transition: color 0.3s ease;
+    }
+
+    .language-card:hover h2 {
+      color: #007BFF;
+    }
+
+    .language-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .language-card button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .language-card button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lenguajes de Programación más Utilizados</h1>
+  
+  <ul>
+    <div class="language-card-container">
+      <li class="language-card">
+        <img src="js.png" alt="JavaScript Logo">
+        <h2>JavaScript</h2>
+        <p>JavaScript es uno de los lenguajes de programación más usados para crear páginas web dinámicas. Le permite a los programadores implementar funciones complejas en las páginas web, agregando interactividad a través de efectos como texto que aparece y desaparece, animaciones, acciones activadas por botones y ventanas emergentes con mensajes de alerta al usuario.</p>
+        <button onclick="openLink('https://developer.mozilla.org/es/docs/Web/JavaScript')">Más información</button>
+      </li>
+    </div>
+    
+    <div class="language-card-container">
+      <li class="language-card">
+        <img src="descarga 3.jfif" alt="Python Logo">
+        <h2>Python</h2>
+        <p>Es ampliamente utilizado en aplicaciones web, el desarrollo de software, la ciencia de datos y el machine learning. Los desarrolladores señalan que es eficiente y fácil de aprender. Además, se puede ejecutar en muchas plataformas diferentes, se puede descargar gratis, se integra bien a todos los tipos de sistemas y aumenta la velocidad del desarrollo.</p>
+        <button onclick="openLink('https://www.python.org/')">Más información</button>
+      </li>
+    </div>
+
+    <div class="language-card-container">
+      <li class="language-card">
+        <img src="descarga2.png" alt="Java Logo">
+        <h2>Java</h2>
+        <p>Creada por Sun Microsystems en 1995, es principalmente utilizado a nivel empresarial para crear aplicaciones en una gran diversidad de dispositivos. Es un lenguaje sencillo y orientado a objetos. Una de sus principales características es la creación de módulos reutilizables, que funcionan sin la necesidad de conocer su estructura interna, lo que permite añadir nuevos, además de obtener programas independientes de la plataforma en la cual fueron desarrollados.</p>
+        <button onclick="openLink('https://www.java.com/')">Más información</button>
+      </li>
+    </div>
+
+    <div class="language-card-container">
+      <li class="language-card">
+        <img src="descarga1.png" alt="C# Logo">
+        <h2>C#</h2>
+        <p>C# Se trata de una evolución que Microsoft realizó de C, tomando lo mejor de este y de C++. A lo largo de su historia se le ha añadido funcionalidades de otros lenguajes, como Java. La empresa lo orientó a objetos para toda su plataforma NET, tanto Framework como Core, y con el tiempo adaptó las facilidades de la creación de código que tenía otro de sus lenguajes más populares, Visual Basic.</p>
+        <button onclick="openLink('https://docs.microsoft.com/en-us/dotnet/csharp/')">Más información</button>
+      </li>
+    </div>
+
+    <div class="language-card-container">
+      <li class="language-card">
+        <img src="descarga.jfif" alt="PHP Logo">
+        <h2>PHP</h2>
+        <p>PHP (Hypertext Preprocessor) es un lenguaje de programación de uso general especialmente diseñado para el desarrollo web. Se puede integrar fácilmente con HTML y se ejecuta en el servidor, generando contenido dinámico para las páginas web.</p>
+        <button onclick="openLink('https://www.php.net/')">Más información</button>
+      </li>
+    </div>
+  </ul>
+
+  <script>
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var languageCardContainers = document.querySelectorAll('.language-card-container');
+
+      function showLanguageCards() {
+        languageCardContainers.forEach(function(container) {
+          var rect = container.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', showLanguageCards);
+      showLanguageCards(); // Mostrar tarjetas que ya son visibles al cargar la página
+    });
+  </script>
+</body>
+</html>
